@@ -1,10 +1,10 @@
 # users table  
 
-  |###Column    |###Type  | ###Options                  |
-  |:-----------:|--------:|:---------------------------:|
-  |user_name    |string   | null: false, unique: true   |
-  |Email        |string   |  null: false, unique: true  |
-  |password     |string   |  null:false                 |
+  |Column       |Type     |Options                   |
+  |:-----------:|--------:|:------------------------:|
+  |user_name    |string   |null: false, unique: true |
+  |Email        |string   |null: false, unique: true |
+  |password     |string   |null:false                |
 
   - has_many :chatgroups, through: :chatgroup_users
   - has_many :comments
@@ -14,9 +14,9 @@
 
 # chatgroups table  
 
-  |###Column    |###Type  |  ###Options                 |
-  |:-----------:|--------:|:---------------------------:|
-  |group_name   |string   | null: false, unique: true   |
+  |Column       |Type     |  Options                 |
+  |:-----------:|--------:|:------------------------:|
+  |group_name   |string   | null: false, unique: true|
 
   - has_many :users, through: :chatgroup_users
   - has_many :comments
@@ -25,10 +25,10 @@
 
 # chatgroup_users table  
 
-  |###Column    |###Type  |  ###Options                |
-  |:-----------:|--------:|:--------------------------:|
-  |user_id      |integer  |                            |
-  |chatgroup_id |integer  |                            |
+  |Column       |Type     |Options                   |
+  |:-----------:|--------:|:------------------------:|
+  |user_id      |integer  |                          |
+  |chatgroup_id |integer  |                          |
 
   - belongs_to :user
   - belongs_to :chatgroup
@@ -36,12 +36,12 @@
 # comments table  
 
 
-  |###Column    |###Type  |  ###Options                |
-  |:-----------:|--------:|:--------------------------:|
-  |comment      |text     |null: false                 |
-  |chatgroup_id |integer  |                            |
-  |user_id      |integer  |                            |
-  |timestamps   |timestamp|                            |
+  |###Column    |###Type  |  ###Options              |
+  |:-----------:|--------:|:------------------------:|
+  |comment      |text     |null: false               |
+  |chatgroup_id |integer  |                          |
+  |user_id      |integer  |                          |
+  |timestamps   |timestamp|                          |
 
   - belongs_to :user
   - belongs_to :chat_group
