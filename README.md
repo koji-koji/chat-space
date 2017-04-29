@@ -1,10 +1,13 @@
 User table
   has_many :chatgroups, :through => :chatgroup_user
   has_many :comments
+  has_many :chatgroup_user
+
 
 Chatgroup table
   has_many :users, :through => :chatgroup_user
   has_many :comments
+  has_many :chatgroup_user
 
 
 Chatgroup_user table
