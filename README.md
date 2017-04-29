@@ -11,8 +11,8 @@ chatgroups table
 
 
 chatgroup_users table
-  has_many :users
-  has_many :chat_groups
+  belongs_to :user
+  belongs_to :chatgroup
 
 comments table
   belongs_to :user
