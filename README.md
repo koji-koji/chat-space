@@ -3,7 +3,7 @@
 ## users table  
 
   |Column       |Type     |Options                   |
-  |:-----------:|--------:|:------------------------:|
+  |:-----------:|:-------:|:------------------------:|
   |user_name    |string   |null: false, unique: true |
   |Email        |string   |null: false, unique: true |
   |password     |string   |null:false                |
@@ -21,7 +21,7 @@
 ## chatgroups table  
 
   |Column       |Type     |  Options                 |
-  |:-----------:|--------:|:------------------------:|
+  |:-----------:|:-------:|:------------------------:|
   |group_name   |string   | null: false, unique: true|
 
 ## Association  
@@ -37,7 +37,7 @@
 ## chatgroup_users table  
 
   |Column       |Type     |Options                   |
-  |:-----------:|--------:|:------------------------:|
+  |:-----------:|:-------:|:------------------------:|
   |user_id      |integer  |                          |
   |chatgroup_id |integer  |                          |
 
@@ -53,7 +53,7 @@
 ## comments table  
 
   |###Column    |###Type  |  ###Options              |
-  |:-----------:|--------:|:------------------------:|
+  |:-----------:|:-------:|:------------------------:|
   |comment      |text     |null: false               |
   |chatgroup_id |integer  |                          |
   |user_id      |integer  |                          |
