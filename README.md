@@ -38,10 +38,10 @@
 
 ## chatgroup_users table  
 
-  |Column       |Type      |Options                   |
-  |:-----------:|:--------:|:------------------------:|
-  |user_id      |integer   |                          |
-  |chatgroup_id |integer   |                          |
+  |Column       |Type         |Options                   |
+  |:-----------:|:-----------:|:------------------------:|
+  |user_id      |references   |                          |
+  |chatgroup_id |references   |                          |
 
 
 ## Association  
@@ -55,12 +55,12 @@
 
 ## comments table  
 
-  |Column       |Type      |Options                   |
-  |:-----------:|:--------:|:------------------------:|
-  |comment      |text      |null: false               |
-  |chatgroup_id |integer   |                          |
-  |user_id      |integer   |                          |
-  |timestamps   |timestamps|                          |
+  |Column       |Type         |Options                   |
+  |:-----------:|:-----------:|:------------------------:|
+  |comment      |text         |null: false               |
+  |chatgroup_id |references   |                          |
+  |user_id      |references   |                          |
+  |timestamps   |timestamps   |                          |
 
 ## Association  
 
