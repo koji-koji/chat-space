@@ -4,7 +4,7 @@
 
   |Column       |Type      |Options                   |
   |:-----------:|:--------:|:------------------------:|
-  |user_name    |string    |null: false, unique: true |
+  |user_name    |string    |null: false, unique: true , add_index|
   |Email        |string    |null: false, unique: true |
   |password     |string    |null:false                |
   |timestamps   |timestamps|                          |
@@ -40,8 +40,8 @@
 
   |Column       |Type         |Options                   |
   |:-----------:|:-----------:|:------------------------:|
-  |user_id      |references   |                          |
-  |chatgroup_id |references   |                          |
+  |user_id      |references   |ON UPDATE CASCADE ON DELETE CASCADE|
+  |chatgroup_id |references   |ON UPDATE CASCADE ON DELETE CASCADE|
 
 
 ## Association  
@@ -58,8 +58,8 @@
   |Column       |Type         |Options                   |
   |:-----------:|:-----------:|:------------------------:|
   |comment      |text         |null: false               |
-  |chatgroup_id |references   |                          |
-  |user_id      |references   |                          |
+  |chatgroup_id |references   |ON UPDATE CASCADE ON DELETE CASCADE|
+  |user_id      |references   |ON UPDATE CASCADE ON DELETE CASCADE|
   |timestamps   |timestamps   |                          |
 
 ## Association  
