@@ -55,7 +55,7 @@
 
 ## comments table  
 
-  |###Column    |###Type   |  ###Options              |
+  |Column       |Type      |Options                   |
   |:-----------:|:--------:|:------------------------:|
   |comment      |text      |null: false               |
   |chatgroup_id |integer   |                          |
