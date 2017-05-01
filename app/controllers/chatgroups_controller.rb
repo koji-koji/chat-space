@@ -1,0 +1,2 @@
+class ChatgroupsController < ApplicationController
+end
