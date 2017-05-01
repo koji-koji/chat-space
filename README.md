@@ -2,11 +2,12 @@
 
 ## users table  
 
-  |Column       |Type     |Options                   |
-  |:-----------:|:-------:|:------------------------:|
-  |user_name    |string   |null: false, unique: true |
-  |Email        |string   |null: false, unique: true |
-  |password     |string   |null:false                |
+  |Column       |Type      |Options                   |
+  |:-----------:|:--------:|:------------------------:|
+  |user_name    |string    |null: false, unique: true |
+  |Email        |string    |null: false, unique: true |
+  |password     |string    |null:false                |
+  |timestamps   |timestamps|                          |
 
 ## Association  
 
@@ -36,10 +37,11 @@
 
 ## chatgroup_users table  
 
-  |Column       |Type     |Options                   |
-  |:-----------:|:-------:|:------------------------:|
-  |user_id      |integer  |                          |
-  |chatgroup_id |integer  |                          |
+  |Column       |Type      |Options                   |
+  |:-----------:|:--------:|:------------------------:|
+  |user_id      |integer   |                          |
+  |chatgroup_id |integer   |                          |
+  |timestamps   |timestamps|                          |
 
 ## Association  
 
@@ -52,12 +54,12 @@
 
 ## comments table  
 
-  |###Column    |###Type  |  ###Options              |
-  |:-----------:|:-------:|:------------------------:|
-  |comment      |text     |null: false               |
-  |chatgroup_id |integer  |                          |
-  |user_id      |integer  |                          |
-  |timestamps   |timestamp|                          |
+  |###Column    |###Type   |  ###Options              |
+  |:-----------:|:--------:|:------------------------:|
+  |comment      |text      |null: false               |
+  |chatgroup_id |integer   |                          |
+  |user_id      |integer   |                          |
+  |timestamps   |timestamps|                          |
 
 ## Association  
 
