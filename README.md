@@ -21,9 +21,10 @@
 
 ## chatgroups table  
 
-  |Column       |Type     |  Options                 |
-  |:-----------:|:-------:|:------------------------:|
-  |group_name   |string   | null: false, unique: true|
+  |Column       |Type      |  Options                 |
+  |:-----------:|:--------:|:------------------------:|
+  |group_name   |string    | null: false, unique: true|
+  |timestamps   |timestamps|                          |
 
 ## Association  
 
@@ -41,7 +42,7 @@
   |:-----------:|:--------:|:------------------------:|
   |user_id      |integer   |                          |
   |chatgroup_id |integer   |                          |
-  |timestamps   |timestamps|                          |
+
 
 ## Association  
 
