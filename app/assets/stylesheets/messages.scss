@@ -1,3 +1,63 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+.chat-menu {
+  height: 100%;
+  width: 300px;
+  background-color: #2f3e51;
+  margin:0;
+  float: left;
+  .chat-menu__head{
+    height: 100px;
+    width: 100%;
+    background-color: #253141;
+  }
+}
+
+.chat-contents{
+  height: 100%;
+  width: 100%;
+  margin-left: 300px;
+  position: relative;
+  background-color: #AAAAAA;
+
+  .chat-contents__head{
+    height: 100px;
+    width: 100%;
+    background-color: white;
+  }
+  .chat-contents__body{
+    height: auto;
+    width: 100%;
+    margin-bottom: 90px;
+  }
+  .chat-contents__type-massage{
+    height: 90px;
+    width: 100%;
+    background-color: green;
+    position:absolute;
+    bottom: 0;
+  }
+}
+
+
+
+
