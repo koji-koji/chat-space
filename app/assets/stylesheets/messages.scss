@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$menu-color: #FFFFFF;
+$sub-name-color: #999999;
+$button-color: #38AEF0;
+$message-color: #434A54;
+
+
+
 html {
   height: 100%;
   width: 100vw;
@@ -13,62 +20,50 @@ body {
   margin: 0;
 }
 
-
-
-
-// @mixin clearfix() {
-//   &:after {
-//     content: '';
-//     display: block;
-//     clear: both;
-//   }
-// }
-
 .clearfix:after {
     content: "";
     display: block;
     clear: both;
 }
 
-
 .chat-menu {
   height: 100%;
   width: 300px;
   float: left;
   box-sizing: border-box;
-  .chat-menu__head {
+  &__head {
     height: 100px;
     width: 100%;
     background-color: #253141;
     padding: 0 20px;
     box-sizing: border-box;
     float:left;
-    .chat-manu__head__name {
+    &__name {
       font-size: 16px;
       font-weight: bold;
-      color: #FFFFFF;
+      color: $menu-color;
       line-height: 100px;
       float: left;
     }
     .fa-cog {
       float: right;
-    }
-    .fa-cog:before {
-      content: "\f013";
-      color: white;
-      line-height: 100px;
+      &:before {
+        content: "\f013";
+        color: $menu-color;
+        line-height: 100px;
+      }
     }
     .fa-edit {
       float: right;
       margin-right:10px;
-    }
-    .fa-edit:before {
-      content: "\f044";
-      color: white;
-      line-height: 100px;
+      &:before {
+        content: "\f044";
+        color: $menu-color;
+        line-height: 100px;
+      }
     }
   }
-  .chat-menu__body {
+  &__body {
     height: 100%;
     width: 100%;
     background-color: #2f3e51;
@@ -76,16 +71,17 @@ body {
     box-sizing: border-box;
     &__group-name {
       font-size: 15px;
-      color: #FFFFFF;
+      color: $menu-color;
       padding-top:20px;
     }
     &__massage {
       font-size: 15px;
-      color: #FFFFFF;
+      color: $menu-color;
       margin: 5px 0 20px 0;
     }
   }
 }
+
 .chat-contents{
   height: 100%;
   margin-left: 300px;
@@ -95,34 +91,33 @@ body {
   &__head {
     height: 100px;
     width: 100%;
-    background-color: white;
+    background-color: $menu-color;
     &__button {
-      color: #38AEF0;
+      color: $button-color;
       display: block;
       border-style: solid;
       border-width: 1px;
-      border-color: #38AEF0;
+      border-color: $button-color;
       margin: 28px 40px ;
       padding: 0 20px;
       float: right;
     }
     &__group-name {
       font-size: 20px;
+      color: #333333;
       margin-bottom: 15px;
       padding: 35px 40px 0;
     }
     &__group-member {
       font-size: 12px;
-      color: #999999;
+      color: $sub-name-color;
       padding: 0 40px;
     }
-
   }
-  .chat-contents__body{
+  &__body{
     height: auto;
     width: 100%;
     margin-bottom:90px;
-
     padding-top: 46px;
     &__content{
       padding-right: 80px;
@@ -131,25 +126,25 @@ body {
         height: 16px;
         &__name {
           font-size: 16px;
-          color: #434A54;
+          color: $message-color;
           font-weight: bold;
           float: left;
         }
         &__time {
           font-size: 12px;
-          color: #999999;
+          color: $sub-name-color;
           margin: 4px 0 0 10px;
           float: left;
         }
       }
       &__message {
           font-size: 14px;
-          color: #434A54;
+          color: $message-color;
           margin: 10px 0 40px 0;
       }
     }
   }
-  .chat-contents__type-message{
+  &__type-message{
     height: 90px;
     width: 100%;
     background-color: gray;
@@ -169,7 +164,7 @@ body {
       height: 50px;
       width: auto;
       margin: 20px 140px 20px 40px;
-      background-color: white;
+      background-color: $menu-color;
       &__message{
         color:black;
         line-height: 50px;
@@ -178,11 +173,11 @@ body {
       .fa-picture-o {
         float: right;
         margin-right:15px;
-      }
-      .fa-picture-o:before {
-        content: "\f03e";
-        color: black;
-        line-height: 50px;
+        &:before {
+          content: "\f03e";
+          color: black;
+          line-height: 50px;
+        }
       }
     }
   }

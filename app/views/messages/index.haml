@@ -2,9 +2,8 @@
   .chat-menu__head
     %i.fa.fa-cog
     %i.fa.fa-edit
-    .chat-manu__head__name SEO
+    .chat-menu__head__name SEO
   .chat-menu__body
-    = render partial: "menu_message"
     = render partial: "menu_message"
 
 .chat-contents
@@ -14,7 +13,6 @@
     .chat-contents__head__group-member Members: Mai  Yuuko  Pinoko
   .chat-contents__body
     .chat-contents__body__content
-      = render partial: "content_message"
       = render partial: "content_message"
     .chat-contents__type-message
       .chat-contents__type-message__button Send
