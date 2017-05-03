@@ -11,24 +11,54 @@ body {
   margin: 0;
 }
 
-@mixin clearfix() {
-  &:after {
-    content: '';
+// @mixin clearfix() {
+//   &:after {
+//     content: '';
+//     display: block;
+//     clear: both;
+//   }
+// }
+
+.clearfix:after {
+    content: "";
     display: block;
     clear: both;
-  }
 }
+
 
 .chat-menu {
   height: 100%;
   width: 300px;
-  background-color: #2f3e51;
-  margin:0;
   float: left;
-  .chat-menu__head{
+  .chat-menu__head {
     height: 100px;
     width: 100%;
     background-color: #253141;
+    padding: 0 20px;
+    float:left;
+    .chat-manu__head__name {
+      font-size: 16px;
+      font-weight: bold;
+      color: #FFFFFF;
+      line-height: 100px;
+    }
+  }
+  .chat-menu__body {
+    height: 100%;
+    width: 100%;
+    background-color: #2f3e51;
+    padding: 80px 20px 0 20px;
+    box-sizing: border-box;
+    .chat-menu__body__group-name {
+      font-size: 15px;
+      color: #FFFFFF;
+      padding-top:40px;
+    }
+    .chat-menu__body__massage {
+      font-size: 15px;
+      color: #FFFFFF;
+      margin: 5px 0 40px 0;
+    }
   }
 }
 
@@ -38,26 +68,90 @@ body {
   margin-left: 300px;
   position: relative;
   background-color: #AAAAAA;
-
-  .chat-contents__head{
+  &__head{
     height: 100px;
     width: 100%;
     background-color: white;
+    &__button {
+      color: #38AEF0;
+      display: block;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #38AEF0;
+      margin: 28px 40px ;
+      padding: 0 20px;
+      float: right;
+    }
+    &__group-name {
+      font-size: 20px;
+      color: #333333;
+      margin-bottom: 15px;
+      padding: 35px 40px 0;
+    }
+    &__group-member {
+      font-size: 12px;
+      color: #999999;
+      padding: 0 40px;
+    }
+
   }
   .chat-contents__body{
     height: auto;
     width: 100%;
-    margin-bottom: 90px;
+    margin-bottom:90px;
+
+    padding-top: 46px;
+    &__content{
+      padding-right: 80px;
+      margin: 0 40px;
+      &__line {
+        height: 16px;
+        &__name {
+          font-size: 16px;
+          color: #434A54;
+          font-weight: bold;
+          float: left;
+        }
+        &__time {
+          font-size: 12px;
+          color: #999999;
+          margin: 4px 0 0 10px;
+          float: left;
+        }
+      }
+      &__message {
+          font-size: 14px;
+          color: #434A54;
+          margin: 30px 0 40px 0;
+      }
+    }
   }
-  .chat-contents__type-massage{
+  .chat-contents__type-message{
     height: 90px;
     width: 100%;
-    background-color: green;
+    background-color: gray;
     position:absolute;
     bottom: 0;
+    &__button {
+      height: 50px;
+      display: block;
+      color: white;
+      line-height: 50px;
+      background-color: #38AEF0;
+      margin: 20px 40px 0 0;
+      padding: 0 20px;
+      float: right;
+    }
+    &__box{
+      height: 50px;
+      width: auto;
+      margin: 20px 140px 20px 40px;
+      background-color: white;
+      &__message{
+        color:black;
+        line-height: 50px;
+        margin: 0 10px;
+      }
+    }
   }
 }
-
-
-
-

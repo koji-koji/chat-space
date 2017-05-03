@@ -1,7 +1,21 @@
-%div.chat-menu
-  %div.chat-menu__head
+.chat-menu
+  .chat-menu__head
+    .chat-manu__head__name SEO
+  .chat-menu__body
+    = render partial: "menu_message"
+    = render partial: "menu_message"
 
-%div.chat-contents
-  %div.chat-contents__head
-  %div.chat-contents__body
-  %div.chat-contents__type-massage
+
+.chat-contents
+  .chat-contents__head
+    .chat-contents__head__button edit
+    .chat-contents__head__group-name KGG
+    .chat-contents__head__group-member Members: Mai  Yuuko  Pinoko
+  .chat-contents__body
+    .chat-contents__body__content
+      = render partial: "content_message"
+      = render partial: "content_message"
+    .chat-contents__type-message
+      .chat-contents__type-message__button Send
+      .chat-contents__type-message__box
+        .chat-contents__type-message__box__message  チョベリバ
