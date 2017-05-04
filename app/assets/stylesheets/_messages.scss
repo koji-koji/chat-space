@@ -1,0 +1,180 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+html {
+  height: 100%;
+  width: 100vw;
+}
+
+body {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.chat-menu {
+  height: 100%;
+  width: 300px;
+  float: left;
+  box-sizing: border-box;
+  &__head {
+    height: 100px;
+    width: 100%;
+    background-color: #253141;
+    padding: 0 20px;
+    box-sizing: border-box;
+    float:left;
+    &__name {
+      font-size: 16px;
+      font-weight: bold;
+      color: $menu-color;
+      line-height: 100px;
+      float: left;
+    }
+    .fa-cog {
+      float: right;
+      &:before {
+        content: "\f013";
+        color: $menu-color;
+        line-height: 100px;
+      }
+    }
+    .fa-edit {
+      float: right;
+      margin-right:10px;
+      &:before {
+        content: "\f044";
+        color: $menu-color;
+        line-height: 100px;
+      }
+    }
+  }
+  &__body {
+    height: 100%;
+    width: 100%;
+    background-color: #2f3e51;
+    padding: 100px 20px 0 20px;
+    box-sizing: border-box;
+    &__group-name {
+      font-size: 15px;
+      color: $menu-color;
+      padding-top:20px;
+    }
+    &__massage {
+      font-size: 15px;
+      color: $menu-color;
+      margin: 5px 0 20px 0;
+    }
+  }
+}
+
+.chat-contents{
+  height: 100%;
+  margin-left: 300px;
+  position: relative;
+  background-color: #AAAAAA;
+  box-sizing: border-box;
+  &__head {
+    height: 100px;
+    width: 100%;
+    background-color: $menu-color;
+    &__button {
+      color: $button-color;
+      display: block;
+      border-style: solid;
+      border-width: 1px;
+      border-color: $button-color;
+      margin: 28px 40px ;
+      padding: 0 20px;
+      float: right;
+    }
+    &__group-name {
+      font-size: 20px;
+      color: #333333;
+      margin-bottom: 15px;
+      padding: 35px 40px 0;
+    }
+    &__group-member {
+      font-size: 12px;
+      color: $sub-name-color;
+      padding: 0 40px;
+    }
+  }
+  &__body{
+    height: auto;
+    width: 100%;
+    margin-bottom:90px;
+    padding-top: 46px;
+    &__content{
+      padding-right: 80px;
+      margin: 0 40px;
+      &__line {
+        height: 16px;
+        &__name {
+          font-size: 16px;
+          color: $message-color;
+          font-weight: bold;
+          float: left;
+        }
+        &__time {
+          font-size: 12px;
+          color: $sub-name-color;
+          margin: 4px 0 0 10px;
+          float: left;
+        }
+      }
+      &__message {
+          font-size: 14px;
+          color: $message-color;
+          margin: 10px 0 40px 0;
+      }
+    }
+  }
+  &__type-message{
+    height: 90px;
+    width: 100%;
+    background-color: gray;
+    position:absolute;
+    bottom: 0;
+    &__button {
+      height: 50px;
+      display: block;
+      color: white;
+      line-height: 50px;
+      background-color: #38AEF0;
+      margin: 20px 40px 0 0;
+      padding: 0 20px;
+      float: right;
+    }
+    &__box{
+      height: 50px;
+      width: auto;
+      margin: 20px 140px 20px 40px;
+      background-color: $menu-color;
+      &__message{
+        color:black;
+        line-height: 50px;
+        margin: 0 10px;
+      }
+      .fa-picture-o {
+        float: right;
+        margin-right:15px;
+        &:before {
+          content: "\f03e";
+          color: black;
+          line-height: 50px;
+        }
+      }
+    }
+  }
+}
