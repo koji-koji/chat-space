@@ -11,9 +11,9 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'font-awesome-rails'
 
+
 group :development, :test do
   gem 'byebug'
-  gem 'devise'
 end
 
 group :development do
@@ -22,5 +22,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'devise'
 gem "haml-rails", "~> 0.9"
 

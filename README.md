@@ -4,7 +4,7 @@
 
   |Column       |Type      |Options                   |
   |:-----------:|:--------:|:------------------------:|
-  |user_name    |string    |null: false, unique: true , add_index|
+  |name         |string    |null: false, unique: true , add_index|
   |Email        |string    |null: false, unique: true |
   |password     |string    |null:false                |
   |timestamps   |timestamps|                          |
