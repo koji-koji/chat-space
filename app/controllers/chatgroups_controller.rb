@@ -11,6 +11,4 @@ class ChatgroupsController < ApplicationController
   def edit
   end
 
-
-
 end
