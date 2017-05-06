@@ -1,3 +1,5 @@
+- flash.each do |key, value|
+  = content_tag(:div, value, class: "flash flash__#{key}")
 .chat-menu
   .chat-menu__head
     = link_to edit_user_registration_path do
@@ -6,7 +8,6 @@
     .chat-menu__head__name SEO
   .chat-menu__body
     = render partial: "menu_message"
-
 .chat-contents
   .chat-contents__head
     .chat-contents__head__button edit
