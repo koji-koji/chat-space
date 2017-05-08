@@ -5,8 +5,9 @@ class ChatgroupsController < ApplicationController
   end
 
   def create
-    @chatgroup = Chatgroup.new(group_name: params[:chatgroup][:group_name])
-    if @chatgroup.save(group_params)
+    @chatgroup = Chatgroup.new(group_params)
+    # binding.pry
+    if @chatgroup.save
       redirect_to root_path, notice: "グループ作成完了！"
     else
       render :new
@@ -18,7 +19,7 @@ class ChatgroupsController < ApplicationController
 
   private
   def group_params
-    params.require(:chatgroup).permit(:name)
+    params.require(:chatgroup).permit(:group_name)
   end
 
 end
