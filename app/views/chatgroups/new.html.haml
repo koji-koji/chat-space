@@ -1,5 +1,11 @@
 .chat-group-form
   %h1 新規チャットグループ
+  .chat-group-form__errors
+    - if @chatgroup.errors.any?
+      %ul
+        -@chatgroup.errors.full_messages.each do |message|
+          %li
+            =message
   = form_for(@chatgroup) do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left

@@ -1,4 +1,4 @@
 class Chatgroup < ApplicationRecord
- validates_presence_of :group_name
- validates :group_name, uniqueness: true
+  validates :group_name, uniqueness: true
+  validates :group_name, presence: true
 end
