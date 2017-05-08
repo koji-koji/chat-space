@@ -17,9 +17,9 @@ class ChatgroupsController < ApplicationController
   end
 
   private
+
   def group_params
     params.require(:chatgroup).permit(:group_name)
   end
 
 end
-
