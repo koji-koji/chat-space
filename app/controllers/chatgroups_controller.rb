@@ -6,7 +6,6 @@ class ChatgroupsController < ApplicationController
 
   def create
     @chatgroup = Chatgroup.new(group_params)
-    # binding.pry
     if @chatgroup.save
       redirect_to root_path, notice: "グループ作成完了！"
     else
