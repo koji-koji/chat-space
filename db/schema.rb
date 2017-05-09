@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506032406) do
+ActiveRecord::Schema.define(version: 20170508141554) do
+
+  create_table "chatgroup_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "chatgroup_id"
+    t.index ["chatgroup_id"], name: "index_chatgroup_users_on_chatgroup_id", using: :btree
+    t.index ["user_id"], name: "index_chatgroup_users_on_user_id", using: :btree
+  end
 
   create_table "chatgroups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "group_name", default: "", null: false
@@ -38,4 +45,6 @@ ActiveRecord::Schema.define(version: 20170506032406) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "chatgroup_users", "chatgroups"
+  add_foreign_key "chatgroup_users", "users"
 end
