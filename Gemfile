@@ -25,4 +25,3 @@ end
 
 gem 'devise'
 gem "haml-rails", "~> 0.9"
-
