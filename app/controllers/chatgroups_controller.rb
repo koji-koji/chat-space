@@ -15,13 +15,10 @@ class ChatgroupsController < ApplicationController
   end
 
   def edit
-    group_set
-    path = "redirect"
     redirect_to root_path unless @chatgroup.users.ids.include?(current_user.id)
   end
 
   def update
-    group_set
     if @chatgroup.update(group_params)
       redirect_to root_path, notice: "グループ編集完了！"
     else
