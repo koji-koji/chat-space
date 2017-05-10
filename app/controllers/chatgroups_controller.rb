@@ -14,6 +14,16 @@ class ChatgroupsController < ApplicationController
   end
 
   def edit
+    @chatgroup = Chatgroup.new(group_params)
+  end
+
+  def update
+    chatgroup = Chatgroup.find(params[:id])
+    if chatgroup.update(group_params)
+      redirect_to root_path, notice: "グループ編集完了！"
+    else
+      render :new
+    end
   end
 
   private
