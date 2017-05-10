@@ -1,11 +1,12 @@
 class ChatgroupsController < ApplicationController
+  before_action :group_set, only: [:edit, :update]
 
   def new
     @chatgroup = Chatgroup.new
   end
 
   def create
-    @chatgroup = Chatgroup.new(group_params)
+    # @chatgroup = Chatgroup.new(group_params)
     if @chatgroup.save
       redirect_to root_path, notice: "グループ作成完了！"
     else
@@ -14,18 +15,13 @@ class ChatgroupsController < ApplicationController
   end
 
   def edit
-      @chatgroup = Chatgroup.find(params[:id])
-      path = "redirect"
-      @chatgroup.users.ids.each do |id|
-        if current_user.id == id
-          path = "edit"
-        end
-      end
-      redirect_to root_path if path == "redirect"
+    group_set
+    path = "redirect"
+    redirect_to root_path unless @chatgroup.users.ids.include?(current_user.id)
   end
 
   def update
-    @chatgroup = Chatgroup.find(params[:id])
+    group_set
     if @chatgroup.update(group_params)
       redirect_to root_path, notice: "グループ編集完了！"
     else
@@ -37,6 +33,10 @@ class ChatgroupsController < ApplicationController
 
   def group_params
     params.require(:chatgroup).permit(:group_name, { user_ids: []})
+  end
+
+  def group_set
+    @chatgroup = Chatgroup.find(params[:id])
   end
 
 end
