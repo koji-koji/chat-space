@@ -15,9 +15,9 @@
     .chat-contents__body__content
       = render partial: "content_comment"
     .chat-contents__type-message
-    = form_for [@chatgroup, @comment] do |f|
-      .chat-contents__type-message__box
-        %i.fa.fa-picture-o
-        .chat-contents__type-message__box__message
-          = f.text_field :comment ,placeholder: 'type a message'
+      = form_for [@chatgroup, @comment] do |f|
         = f.submit "Send",class: 'chat-contents__type-message__button'
+        .chat-contents__type-message__box
+          %i.fa.fa-picture-o
+          = f.text_field :comment ,placeholder: 'type a message',class: 'chat-contents__type-message__box__message'
+
