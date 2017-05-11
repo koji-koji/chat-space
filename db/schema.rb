@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(version: 20170510031510) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "comment",         limit: 65535, null: false
-    t.integer  "chatgroup_id_id"
-    t.integer  "user_id_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["chatgroup_id_id"], name: "index_comments_on_chatgroup_id_id", using: :btree
-    t.index ["user_id_id"], name: "index_comments_on_user_id_id", using: :btree
+    t.text     "comment",      limit: 65535, null: false
+    t.integer  "chatgroup_id"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["chatgroup_id"], name: "index_comments_on_chatgroup_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
