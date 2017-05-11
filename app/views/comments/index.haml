@@ -5,6 +5,7 @@
     %i.fa.fa-edit
     .chat-menu__head__name SEO
   .chat-menu__body
+    = render partial: "menu_comment"
 .chat-contents
   .chat-contents__head
     .chat-contents__head__button edit
@@ -12,6 +13,7 @@
     .chat-contents__head__group-member Members: Mai  Yuuko  Pinoko
   .chat-contents__body
     .chat-contents__body__content
+      = render partial: "content_comment"
     .chat-contents__type-message
     = form_for [@chatgroup, @comment] do |f|
       .chat-contents__type-message__box
