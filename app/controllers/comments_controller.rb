@@ -1,21 +1,28 @@
 class CommentsController < ApplicationController
+  before_action :comment_set, only: [:index, :create]
+
   def index
-    @chatgroup = Chatgroup.find(params[:chatgroup_id])
     @comment = Comment.new
   end
 
   def create
-    comment = Comment.new(comment_params)
-    if comment.save
+    @comment = Comment.new(comment_params)
+    if @comment.save
       redirect_to chatgroup_comments_path, notice: "メッセージ送信成功！"
     else
-      redirect_to chatgroup_comments_path, alert: "メッセージ送信失敗！"
+      flash.now[:alert] = "メッセージ送信失敗！"
+      render :index
     end
   end
 
   private
 
   def comment_params
-    params.permit(:chatgroup_id,).merge(user_id: current_user.id,comment: params[:comment].dig("comment"))
+    params.require(:comment).permit(:chatgroup_id,:comment).merge(user_id: current_user.id)
   end
+
+  def comment_set
+    @chatgroup = Chatgroup.find(params[:chatgroup_id])
+  end
+
 end
