@@ -16,4 +16,3 @@ class CommentsController < ApplicationController
     params.permit(:chatgroup_id, :user_id, :comment)
   end
 end
-
