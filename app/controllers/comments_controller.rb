@@ -11,8 +11,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params[:user_id] = current_user.id
-    params[:comment] = params[:comment][:comment]
-    params.permit(:chatgroup_id, :user_id, :comment)
+    params.permit(:chatgroup_id,).merge(user_id: current_user.id,comment: params[:comment].dig("comment"))
   end
 end
