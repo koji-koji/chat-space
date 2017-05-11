@@ -5,7 +5,12 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(comment_params)
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to chatgroup_comments_path, notice: "メッセージ送信成功！"
+    else
+      redirect_to chatgroup_comments_path, alert: "メッセージ送信失敗！"
+    end
   end
 
   private
