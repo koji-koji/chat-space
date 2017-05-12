@@ -107,7 +107,14 @@ body {
     &__group-member {
       font-size: 12px;
       color: $sub-name-color;
-      padding: 0 40px;
+      padding-left: 40px;
+      display: block;
+      float: left;
+    }
+    &__group-member__name {
+      font-size: 12px;
+      color: $sub-name-color;
+      float: left;
     }
   }
   &__body{
@@ -134,9 +141,9 @@ body {
         }
       }
       &__message {
-          font-size: 14px;
-          color: $message-color;
-          margin: 10px 0 40px 0;
+        font-size: 14px;
+        color: $message-color;
+        margin: 10px 0 40px 0;
       }
     }
   }
