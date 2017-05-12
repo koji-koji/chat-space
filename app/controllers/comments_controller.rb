@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :comment_set, only: [:index, :create]
+  before_action :group_set, only: [:index, :create]
 
   def index
     @comment = Comment.new
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:comment).merge(user_id: current_user.id)
   end
 
-  def comment_set
+  def group_set
     @chatgroup = Chatgroup.find(params[:chatgroup_id])
   end
 
