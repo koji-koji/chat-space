@@ -57,4 +57,6 @@ ActiveRecord::Schema.define(version: 20170510031510) do
 
   add_foreign_key "chatgroup_users", "chatgroups"
   add_foreign_key "chatgroup_users", "users"
+  add_foreign_key "comments", "chatgroups"
+  add_foreign_key "comments", "users"
 end

@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @chatgroup.comments.new(comment_params)
     if @comment.save
       redirect_to chatgroup_comments_path, notice: "メッセージ送信成功！"
     else
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:chatgroup_id,:comment).merge(user_id: current_user.id)
+    params.require(:comment).permit(:comment).merge(user_id: current_user.id)
   end
 
   def comment_set
