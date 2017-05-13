@@ -6,22 +6,21 @@
       %i.fa.fa-edit
     .chat-menu__head__name= current_user.name
   .chat-menu__body
-    = render partial: "menu_comment",collection: current_user.chatgroups,as: :chatgroup
+    = render partial: "menu_comment", collection: current_user.chatgroups, as: :chatgroup
 .chat-contents
   .chat-contents__head
-    = link_to edit_chatgroup_path(params[:chatgroup_id]) do
+    = link_to edit_chatgroup_path(@chatgroup) do
       .chat-contents__head__button edit
     .chat-contents__head__group-name= @chatgroup.group_name
     .chat-contents__head__group-member member:
-    .chat-contents__head__group-member__name
-      - @chatgroup.users.each do |user|
-        = user[:name].gsub(/U/){""}+ ","
+    .chat-contents__head__group-member--name
+      = @chatgroup.users.pluck(:name).join(",")
   .chat-contents__body
     .chat-contents__body__content
-      = render partial: "content_comment",collection: @chatgroup.comments,as: :comment
+      = render partial: "content_comment",collection: @chatgroup.comments, as: :comment
     .chat-contents__type-message
       = form_for [@chatgroup, @comment] do |f|
-        = f.submit "Send",class: 'chat-contents__type-message__button'
+        = f.submit "Send", class: 'chat-contents__type-message__button'
         .chat-contents__type-message__box
           %i.fa.fa-picture-o
-          = f.text_field :comment ,placeholder: 'type a message',class: 'chat-contents__type-message__box__message'
+          = f.text_field :comment, placeholder: 'type a message', class: 'chat-contents__type-message__box__message'
