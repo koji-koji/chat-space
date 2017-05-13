@@ -14,7 +14,7 @@
     .chat-contents__head__group-name= @chatgroup.group_name
     .chat-contents__head__group-member member:
     .chat-contents__head__group-member--name
-      = @chatgroup.users.pluck(:name).join(",")
+      = @chatgroup.users.pluck(:name).join(',')
   .chat-contents__body
     .chat-contents__body__content
       = render partial: "content_comment",collection: @chatgroup.comments, as: :comment
