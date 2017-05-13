@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :chatgroups, through: :chatgroup_users
   has_many :chatgroup_users
+  has_many :comments
 
 end

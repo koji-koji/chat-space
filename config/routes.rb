@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'messages#index'
-  resources :chatgroups, except: [:index ,:show]
+  root 'chatgroups#new'
+  resources :chatgroups, except: [:index, :show] do
+    resources :comments, only: [:index, :create]
+  end
 end
