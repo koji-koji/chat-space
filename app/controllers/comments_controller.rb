@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
     if @comment.save
       respond_to do |format|
         format.html { redirect_to :root }
-        format.json { render json: @comments }
+        format.json {}
+
       end
     else
       flash.now[:alert] = "メッセージ送信失敗！"
