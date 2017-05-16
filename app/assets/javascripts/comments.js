@@ -1,6 +1,16 @@
 $(function() {
   function buildHTML(data) {
-    var html = "<div class = 'chat-contents__body__content__line clearfix'>" + "<div class = 'chat-contents__body__content__line__name'>"+ data.name + "</div>" + "<div class = 'chat-contents__body__content__line__time'>" + data.time + "</div>" + "</div>" + "<div class = 'chat-contents__body__content__message'>" + data.comment + "</div>"
+    var html = `<div class = 'chat-contents__body__content__line clearfix'>
+                  <div class = 'chat-contents__body__content__line__name'>
+                    ${data.name}
+                  </div>
+                  <div class = 'chat-contents__body__content__line__time'>
+                    ${data.time}
+                  </div>
+                </div>
+                <div class = 'chat-contents__body__content__message'>
+                  ${data.comment}
+                </div>`
     return html;
   }
   $('.chat-contents__type-message__button').on('click', function(e) {

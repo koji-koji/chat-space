@@ -22,7 +22,7 @@
       .chat-contents__body__comments
     .comments__user
     .chat-contents__type-message
-      = form_for [@chatgroup, @comment], remote: true, format: 'json' do |f|
+      = form_for [@chatgroup, @comment] do |f|
         = f.submit "Send", class: 'chat-contents__type-message__button'
         .chat-contents__type-message__box
           %i.fa.fa-picture-o

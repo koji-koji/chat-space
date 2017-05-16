@@ -1,3 +1,4 @@
+
 class CommentsController < ApplicationController
   before_action :group_set, only: [:index, :create]
 
@@ -12,7 +13,6 @@ class CommentsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to :root }
         format.json {}
-
       end
     else
       flash.now[:alert] = "メッセージ送信失敗！"
