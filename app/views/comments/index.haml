@@ -17,10 +17,14 @@
       = @chatgroup.users.pluck(:name).join(',')
   .chat-contents__body
     .chat-contents__body__content
-      = render partial: "content_comment",collection: @chatgroup.comments, as: :comment
+      = render partial: "content_comment", collection: @chatgroup.comments, as: :comment
+    %ul
+      .chat-contents__body__comments
+    .comments__user
     .chat-contents__type-message
       = form_for [@chatgroup, @comment] do |f|
         = f.submit "Send", class: 'chat-contents__type-message__button'
         .chat-contents__type-message__box
           %i.fa.fa-picture-o
           = f.text_field :comment, placeholder: 'type a message', class: 'chat-contents__type-message__box__message'
+

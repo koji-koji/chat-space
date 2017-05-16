@@ -3,12 +3,16 @@ class CommentsController < ApplicationController
 
   def index
     @comment = Comment.new
+    @comments = Comment.order('created_at ASC')
   end
 
   def create
     @comment = @chatgroup.comments.new(comment_params)
     if @comment.save
-      redirect_to chatgroup_comments_path, notice: "メッセージ送信成功！"
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { flash.now[:notice] = "メッセージ送信成功！"}
+      end
     else
       flash.now[:alert] = "メッセージ送信失敗！"
       render :index
@@ -18,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:comment).merge(user_id: current_user.id)
+    params.require(:comments).permit(:comment).merge(user_id: current_user.id)
   end
 
   def group_set
