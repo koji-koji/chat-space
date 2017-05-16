@@ -32,9 +32,10 @@ $(function() {
       var show = $('<li class="comment" style = "list-style: none;">').append(html)
       $('.chat-contents__body__comments').append(show)
       textField.val('')
+      alert('送信が成功しました')
     })
     .fail(function(error){
-      alert('error');
+      alert('error')
     });
   });
 });
