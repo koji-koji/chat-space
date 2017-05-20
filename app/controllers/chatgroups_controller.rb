@@ -3,6 +3,7 @@ class ChatgroupsController < ApplicationController
 
   def new
     @chatgroup = Chatgroup.new
+    @users = User.all
   end
 
   def create
@@ -23,6 +24,14 @@ class ChatgroupsController < ApplicationController
       redirect_to root_path, notice: "グループ編集完了！"
     else
       render :edit
+    end
+  end
+
+  def search
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html { render :index }
+      format.json {}
     end
   end
 
