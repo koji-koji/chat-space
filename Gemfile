@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'font-awesome-rails'
 
 
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
@@ -25,3 +26,4 @@ end
 
 gem 'devise'
 gem "haml-rails", "~> 0.9"
+gem 'carrierwave'
