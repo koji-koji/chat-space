@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
     @comment = @chatgroup.comments.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to chatgroup_comments_path }
-        format.json {}
+        format.html { redirect_to chatgroup_comments_path}
+        format.json
       end
     else
       flash.now[:alert] = "メッセージ送信失敗！"
