@@ -13,16 +13,19 @@ $(function() {
                 </div>`
     return html;
   }
-  $('.chat-contents__type-message__button').on('click', function(e) {
+  $('.chat-contents__type-message__button').on("submit", function(e) {
     e.preventDefault();
     var textField = $('.chat-contents__type-message__box__message');
     var comment = textField.val();
+    var image = event.target.src;
+    console.log(image)
     $.ajax({
       type: 'POST',
       url: window.location.href,
       data: {
         comments: {
-          comment: comment
+          comment: comment,
+          image: image
         }
       },
       dataType: 'json'

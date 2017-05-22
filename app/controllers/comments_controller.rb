@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comments).permit(:comment, :image).merge(user_id: current_user.id)
+    params.require(:comment).permit(:comment, :image).merge(user_id: current_user.id)
   end
 
   def group_set
