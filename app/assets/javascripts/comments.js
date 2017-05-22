@@ -18,7 +18,7 @@ $(function() {
     var textField = $('.chat-contents__type-message__box__message');
     var comment = textField.val();
     if ( event.target.src != nill ) {
-    var image = event.target.src;
+      var image = event.target.src;
     }
     $.ajax({
       type: 'POST',
