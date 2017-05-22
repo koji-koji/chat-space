@@ -10,8 +10,8 @@ class CommentsController < ApplicationController
     @comment = @chatgroup.comments.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to :root }
-        format.json {}
+        format.html { redirect_to chatgroup_comments_path }
+        format.json
       end
     else
       flash.now[:alert] = "メッセージ送信失敗！"
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comments).permit(:comment).merge(user_id: current_user.id)
+    params.require(:comment).permit(:comment, :image).merge(user_id: current_user.id)
   end
 
   def group_set

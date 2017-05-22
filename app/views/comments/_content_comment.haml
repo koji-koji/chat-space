@@ -2,3 +2,5 @@
   .chat-contents__body__content__line__name=comment.user.name
   .chat-contents__body__content__line__time=comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
 .chat-contents__body__content__message=comment.comment
+- if comment.image.url != nil
+  .chat-contents__body__content__image=image_tag(comment.image, size: 16*16)

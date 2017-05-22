@@ -25,6 +25,8 @@
       = form_for [@chatgroup, @comment] do |f|
         = f.submit "Send", class: 'chat-contents__type-message__button'
         .chat-contents__type-message__box
-          %i.fa.fa-picture-o
+          %label
+            = f.file_field :image,class: 'chat-contents__type-message__box__icon'
+            %i.fa.fa-picture-o
           = f.text_field :comment, placeholder: 'type a message', class: 'chat-contents__type-message__box__message'
 
