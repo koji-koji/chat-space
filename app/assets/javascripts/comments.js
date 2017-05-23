@@ -13,11 +13,13 @@ $(function() {
                 </div>`
     return html;
   }
+
   function appendHTML(data) {
     var html = buildHTML(data);
     var show = $('<li class="comment" style = "list-style: none;">').append(html)
     $('.chat-contents__body__comments').append(show)
   }
+
   function countup() {
     $.ajax({
       type: 'GET',
@@ -33,6 +35,7 @@ $(function() {
       })
     });
   }
+
   setInterval(countup, 5000);
   $('.chat-contents__type-message__button').on("submit", function(e) {
     e.preventDefault();
