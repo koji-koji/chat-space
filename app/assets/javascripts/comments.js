@@ -1,10 +1,10 @@
 $(function() {
   function buildHTML(data) {
     var html = `<div class = 'chat-contents__body__content__line clearfix'>
-                  <div class = 'chat-contents__body__content__line__name'>
+                  <div class = 'chat-contents__body__content__line__name' data-message-id="${message.id}>
                     ${data.name}
                   </div>
-                  <div class = 'chat-contents__body__content__line__time'>
+                  <div class = 'chat-contents__body__content__line__time' >
                     ${data.time}
                   </div>
                 </div>
