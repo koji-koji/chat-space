@@ -42,4 +42,23 @@ $(function() {
       alert('error')
     });
   });
+  // ↑コメントを送信した場合の自動更新
+    // ↓setInterbalによる自動更新
+
+    var countup = function(){console.log("hoge")
+    setInterval(countup, 1000);
+    $.ajax{
+      type: 'GET'
+      url: window.location.href,
+      data:
+      dataType: 'json'
+    }
+    .done(function(data){
+    });
+    .fail(function(error){
+      alert('error')
+    });
+
+
+
 });
