@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(data) {
     var html = `<div class = 'chat-contents__body__content__line clearfix'>
-                  <div class = 'chat-contents__body__content__line__name' data-message-id="${message.id}>
+                  <div class = 'chat-contents__body__content__line__name' >
                     ${data.name}
                   </div>
                   <div class = 'chat-contents__body__content__line__time' >
@@ -21,22 +21,24 @@ $(function() {
   }
 
   function countup() {
+    var Id = document.querySelectorAll( "[data-comment-id]" )
+    var lastId = $(Id[Id.length-1]).attr('data-comment-id')
     $.ajax({
       type: 'GET',
       url: window.location.href,
+      data: {
+        lastId: lastId
+      },
       dataType: 'json'
     })
     .done(function(data) {
-      var id = document.querySelectorAll( "[data-comment-id]" );
       $.each(data.comments, function(i,data){
-        if ( id > data.id ){
-          appendHTML(data)
-        }
+        appendHTML(data)
       })
     });
   }
-
   setInterval(countup, 5000);
+
   $('.chat-contents__type-message__button').on("submit", function(e) {
     e.preventDefault();
     var textField = $('.chat-contents__type-message__box__message');
