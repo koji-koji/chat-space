@@ -13,6 +13,27 @@ $(function() {
                 </div>`
     return html;
   }
+  function appendHTML(data) {
+    var html = buildHTML(data);
+    var show = $('<li class="comment" style = "list-style: none;">').append(html)
+    $('.chat-contents__body__comments').append(show)
+  }
+  function countup() {
+    $.ajax({
+      type: 'GET',
+      url: window.location.href,
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var id = document.querySelectorAll( "[data-comment-id]" );
+      $.each(data.comments, function(i,data){
+        if ( id > data.id ){
+          appendHTML(data)
+        }
+      })
+    });
+  }
+  setInterval(countup, 5000);
   $('.chat-contents__type-message__button').on("submit", function(e) {
     e.preventDefault();
     var textField = $('.chat-contents__type-message__box__message');
@@ -32,9 +53,7 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data){
-      var html = buildHTML(data);
-      var show = $('<li class="comment" style = "list-style: none;">').append(html)
-      $('.chat-contents__body__comments').append(show)
+      appendHTML(data)
       textField.val('')
       alert('送信が成功しました')
     })
@@ -42,23 +61,4 @@ $(function() {
       alert('error')
     });
   });
-  // ↑コメントを送信した場合の自動更新
-    // ↓setInterbalによる自動更新
-
-    var countup = function(){console.log("hoge")
-    setInterval(countup, 1000);
-    $.ajax{
-      type: 'GET'
-      url: window.location.href,
-      data:
-      dataType: 'json'
-    }
-    .done(function(data){
-    });
-    .fail(function(error){
-      alert('error')
-    });
-
-
-
 });
