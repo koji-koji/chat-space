@@ -4,10 +4,11 @@ class CommentsController < ApplicationController
   def index
     @comment = Comment.new
     @comments = Comment.order('created_at ASC')
-    @chatgroup = Chatgroup.find(params[:chatgroup_id])
     respond_to do |format|
       format.html
-      format.json
+      format.json {
+        @comments = @chatgroup.comments.where('id > ?', params[:lastId])
+      }
     end
   end
 
