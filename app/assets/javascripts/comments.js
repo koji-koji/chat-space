@@ -1,7 +1,7 @@
 $(function() {
   function buildHTML(data) {
     var html = `<div class = 'chat-contents__body__content__line clearfix'>
-                  <div class = 'chat-contents__body__content__line__name' >
+                  <div class = 'chat-contents__body__content__line__name' data-comment-id="${data.comment.id}>
                     ${data.name}
                   </div>
                   <div class = 'chat-contents__body__content__line__time' >
