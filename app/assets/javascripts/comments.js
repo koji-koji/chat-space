@@ -1,41 +1,70 @@
 $(function() {
   function buildHTML(data) {
-    var html = `<div class = 'chat-contents__body__content__line clearfix'>
-                  <div class = 'chat-contents__body__content__line__name'>
-                    ${data.name}
-                  </div>
-                  <div class = 'chat-contents__body__content__line__time'>
-                    ${data.time}
-                  </div>
-                </div>
-                <div class = 'chat-contents__body__content__message'>
-                  ${data.comment}
-                </div>`
-    return html;
+    var html =  `
+      <li class="comment" style = "list-style: none;">
+        <div class = 'chat-contents__body__content__line clearfix'>
+          <div class = 'chat-contents__body__content__line__name'>
+            ${data.name}
+          </div>
+          <div class = 'chat-contents__body__content__line__time'>
+            ${data.time}
+          </div>
+        </div>
+        <div class = 'chat' data-comment-id = '${data.id}'>
+        </div>
+        <div class = 'chat-contents__body__content__message'>
+            ${data.comment}
+        </div>`
+      if (data.image.url == null){
+        html = $(html).append(`</li>`)
+      } else {
+        html = $(html).append(`<div class = 'chat-contents__body__content__image'><img src = '${data.image.url}' width="256" height="256"}</div>
+      </li>`)
+      }
+    $('.chat-contents__body__comments').append(html)
   }
-  $('.chat-contents__type-message__button').on("submit", function(e) {
-    e.preventDefault();
-    var textField = $('.chat-contents__type-message__box__message');
-    var comment = textField.val();
-    if ( event.target.src != nill ) {
-      var image = event.target.src;
+
+
+  function countup() {
+    if ($('.chat').last(0).data('commentId') == null ){
+      var lastId = 0
+    } else {
+      var lastId = $('.chat').last(0).data('commentId')
     }
     $.ajax({
-      type: 'POST',
+      type: 'GET',
       url: window.location.href,
       data: {
-        comments: {
-          comment: comment,
-          image: image
-        }
+        lastId: lastId
       },
       dataType: 'json'
     })
+    .done(function(data) {
+      $.each(data.comments, function(i, data){
+        buildHTML(data)
+      })
+    });
+  }
+  setInterval(countup, 10000);
+
+
+  $('.form').on("submit", function(e) {
+    e.preventDefault();
+    var formdata = new FormData($(this).get(0));
+    $.ajax({
+      type: 'POST',
+      url: window.location.href,
+      data: formdata,
+      dataType: 'json',
+      contentType: false,
+      processData: false,
+      disabled: false
+    })
     .done(function(data){
-      var html = buildHTML(data);
-      var show = $('<li class="comment" style = "list-style: none;">').append(html)
-      $('.chat-contents__body__comments').append(show)
-      textField.val('')
+      buildHTML(data);
+      var textField = $('.chat-contents__type-message__box__message')
+      $(textField).val('')
+      $('.chat-contents__type-message__button').removeAttr("disabled");
       alert('送信が成功しました')
     })
     .fail(function(error){
