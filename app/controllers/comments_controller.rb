@@ -2,10 +2,11 @@ class CommentsController < ApplicationController
   before_action :group_set, only: [:index, :create]
 
   def index
-    @comment = Comment.new
-    @comments = Comment.order('created_at ASC')
     respond_to do |format|
-      format.html
+      format.html {
+        @comment = Comment.new
+        @comments = Comment.order('created_at ASC')
+      }
       format.json {
         @comments = @chatgroup.comments.where('id > ?', params[:lastId])
       }
