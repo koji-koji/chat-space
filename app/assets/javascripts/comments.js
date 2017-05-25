@@ -15,7 +15,6 @@ $(function() {
         <div class = 'chat-contents__body__content__message'>
             ${data.comment}
         </div>`
-      console.log(data.id)
       if (data.image.url == null){
         html = $(html).append(`</li>`)
       } else {
@@ -32,7 +31,6 @@ $(function() {
     } else {
       var lastId = $('.chat').last(0).data('commentId')
     }
-    console.log(lastId)
     $.ajax({
       type: 'GET',
       url: window.location.href,
@@ -52,7 +50,6 @@ $(function() {
 
   $('.form').on("submit", function(e) {
     e.preventDefault();
-    console.log(this)
     var formdata = new FormData($(this).get(0));
     $.ajax({
       type: 'POST',
@@ -64,7 +61,6 @@ $(function() {
       disabled: false
     })
     .done(function(data){
-      console.log("hoge")
       buildHTML(data);
       var textField = $('.chat-contents__type-message__box__message')
       $(textField).val('')
