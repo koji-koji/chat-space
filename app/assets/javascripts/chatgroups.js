@@ -37,7 +37,7 @@ $(function(){
   $(document).on("click", '.search--add' , function(){
     var group_member = $(this).parent()
     $('#member').append(group_member)
-    $(this).text("削除").addClass("search--added")
+    $(this).text("削除").removeClass("search--add").addClass("search--added")
     var id = $(this).parent().data('id')
     var add = `<input type="hidden" name="chatgroup[user_ids][]" value = "${id}" ></input>`
     $(this).append(add)
