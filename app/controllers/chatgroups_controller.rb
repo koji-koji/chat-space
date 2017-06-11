@@ -1,6 +1,10 @@
 class ChatgroupsController < ApplicationController
   before_action :group_set, only: [:edit, :update]
 
+  def index
+    @chatgroup = Chatgroup.find(current_user.chatgroups.ids)
+  end
+
   def new
     @chatgroup = Chatgroup.new
   end
