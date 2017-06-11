@@ -75,6 +75,9 @@
       padding: 10px 15px;
       box-sizing: border-box;
     }
+    &--right{
+      margin-top: 10px;
+    }
   }
   &__member{
     .chat-group-form__member--left {
