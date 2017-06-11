@@ -8,8 +8,8 @@ $(function(){
               追加
             </span>
           </li>`).data('id', users.id)
-      })
-  }
+      });
+  };
   var input_name = '.chat-group-form__member--right__input';
   var search_class = '.chat-group-form__member--right__search';
 
@@ -18,18 +18,18 @@ $(function(){
     var textField = $(input_name)
     var input = textField.val()
     $.ajax({
-      type: 'GET',
+      type: "GET",
       url: "/chatgroups/search",
-      data: ('keyword=' + input),
-      dataType: 'json'
+      data: ("keyword=" + input),
+      dataType: "json"
     })
     .done(function(data) {
       $(search_class).find('li').remove();
       buildSEARCH(data)
       if($(input_name).val().trim() === ""){
         $(search_class).find('li').remove();
-      }
-      })
+      };
+    })
     .fail(function(error){
       alert('error')
     });
@@ -43,6 +43,6 @@ $(function(){
     $(this).append(add)
     $(this).on("click", function(){
       $(this).parent().remove()
-    })
+    });
   });
 });
