@@ -27,6 +27,7 @@ body {
   width: 300px;
   float: left;
   box-sizing: border-box;
+  position: fixed;
   &__head {
     height: 100px;
     width: 100%;
@@ -88,6 +89,7 @@ body {
     height: 100px;
     width: 100%;
     background-color: $menu-color;
+    position: fixed;
     &__button {
       color: $button-color;
       display: block;
@@ -151,7 +153,7 @@ body {
     height: 90px;
     width: 100%;
     background-color: gray;
-    position:absolute;
+    position: fixed;
     bottom: 0;
     &__button {
       height: 50px;
