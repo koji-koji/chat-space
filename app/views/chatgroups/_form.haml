@@ -1,12 +1,12 @@
 = form_for(@chatgroup) do |f|
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      = f.label "グループ名", class: 'chat-group-form__field--left__label'
+      = f.label "グループ名", class: 'chat-group-form__label'
     .chat-group-form__field--right
       = f.text_field :group_name, placeholder: "グループ名を入力してください", class: 'chat-group-form__field--right__input'
   .chat-group-form__member.clearfix
     .chat-group-form__member--left
-      = f.label "チャットメンバーを追加", class: 'chat-group-form__member--left__label'
+      = f.label "チャットメンバーを追加", class: 'chat-group-form__label'
     .chat-group-form__member--right
       %input.chat-group-form__member--right__input{ placeholder: "メンバー名を入力してください" }
 
