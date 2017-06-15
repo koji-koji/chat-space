@@ -20,7 +20,7 @@ $(function(){
     $.ajax({
       type: 'GET',
       url: '/chatgroups/search',
-      data: ('keyword'= + input),
+      data: ('keyword=' + input),
       dataType: 'json'
     })
     .done(function(data) {
