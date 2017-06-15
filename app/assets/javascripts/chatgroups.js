@@ -18,10 +18,10 @@ $(function(){
     var textField = $(input_name)
     var input = textField.val()
     $.ajax({
-      type: "GET",
-      url: "/chatgroups/search",
-      data: ("keyword=" + input),
-      dataType: "json"
+      type: 'GET',
+      url: '/chatgroups/search',
+      data: ('keyword'= + input),
+      dataType: 'json'
     })
     .done(function(data) {
       $(search_class).find('li').remove();
