@@ -6,6 +6,7 @@ class ChatgroupsController < ApplicationController
 
   def new
     @chatgroup = Chatgroup.new
+    @users = User.all
   end
 
   def create
