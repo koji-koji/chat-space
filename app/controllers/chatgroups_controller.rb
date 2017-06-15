@@ -3,7 +3,6 @@ class ChatgroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @chatgroup = Chatgroup.find(current_user.chatgroups.ids)
   end
 
   def new
