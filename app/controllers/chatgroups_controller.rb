@@ -1,6 +1,5 @@
 class ChatgroupsController < ApplicationController
   before_action :group_set, only: [:edit, :update]
-  before_action :authenticate_user!
 
   def index
   end
