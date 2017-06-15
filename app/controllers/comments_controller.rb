@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
     @comment = @chatgroup.comments.new(comment_params)
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to :root }
         format.json {}
       end
     else
