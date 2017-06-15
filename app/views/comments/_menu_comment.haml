@@ -1,2 +1,2 @@
-.chat-menu__body__group-name=chatgroup.group_name
-.chat-menu__body__massage=chatgroup.comments.last.try(:comment)
+= link_to chatgroup.group_name, chatgroup_comments_path(chatgroup),class: 'chat-menu__body__group-name'
+.chat-menu__body__massage= chatgroup.comments.last.try(:comment)

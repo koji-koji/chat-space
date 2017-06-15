@@ -1,0 +1,9 @@
+.chat-menu
+  .chat-menu__head
+    = link_to edit_user_registration_path do
+      %i.fa.fa-cog
+    = link_to new_chatgroup_path do
+      %i.fa.fa-edit
+    .chat-menu__head__name= current_user.name
+  .chat-menu__body
+    = render partial: "comments/menu_comment", collection: current_user.chatgroups, as: :chatgroup
