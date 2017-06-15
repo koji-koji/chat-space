@@ -1,5 +1,5 @@
 $(function(){
-  function buildSEARCH(data) {
+  function buildSearch(data) {
     $.each(data, function(i, users){
         $(search_class).append(
           `<li class="search" id ="${users.id}" data-id="${users.id}">
