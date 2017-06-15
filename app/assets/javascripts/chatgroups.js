@@ -25,7 +25,7 @@ $(function(){
     })
     .done(function(data) {
       $(search_class).find('li').remove();
-      buildSEARCH(data)
+      buildSearch(data)
       if($(input_name).val().trim() === ""){
         $(search_class).find('li').remove();
       };
