@@ -179,6 +179,9 @@ body {
           line-height: 50px;
         }
       }
+      &__icon{
+        display: none;
+      }
       &__message{
         height: 100%;
         width: 100%;
@@ -189,3 +192,4 @@ body {
     }
   }
 }
+
