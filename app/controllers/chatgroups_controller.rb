@@ -30,8 +30,7 @@ class ChatgroupsController < ApplicationController
   def search
     @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
-      format.html { render :index }
-      format.json {}
+      format.json
     end
   end
 
