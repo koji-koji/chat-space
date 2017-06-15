@@ -19,7 +19,7 @@ $(function(){
     var input = textField.val()
     $.ajax({
       type: 'GET',
-      url: '/chatgroups/search',
+      url: '/user_search',
       data: ('keyword=' + input),
       dataType: 'json'
     })
