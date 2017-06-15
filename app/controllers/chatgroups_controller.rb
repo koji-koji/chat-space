@@ -1,8 +1,8 @@
 class ChatgroupsController < ApplicationController
   before_action :group_set, only: [:edit, :update]
+  before_action :authenticate_user!
 
   def index
-    redirect_to new_user_registration if user_signed_in?
     @chatgroup = Chatgroup.find(current_user.chatgroups.ids)
   end
 
