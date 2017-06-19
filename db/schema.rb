@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170521201959) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "comment",      limit: 65535, null: false
+    t.text     "comment",      limit: 65535
     t.integer  "chatgroup_id"
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
