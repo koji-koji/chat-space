@@ -1,10 +1,10 @@
 FactoryGirl.define do
 
   factory :comment do
-    comment           "hoge"
+    comment            { Faker::Lorem.sentence}
     chatgroup_id      "1"
     user_id           "1"
-    image             "hoge.img"
+    image              { File.open("#{Rails.root}/test/fixtures/files/test.jpg") }
   end
 
 end
