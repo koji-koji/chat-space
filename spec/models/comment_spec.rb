@@ -24,7 +24,6 @@ describe Comment do
       expect(comment.errors[:image]).to include("can't be blank")
     end
 
-
     it "is invalid without a chatgroup_id" do
       comment = build(:comment,chatgroup_id: nil)
       comment.valid?
