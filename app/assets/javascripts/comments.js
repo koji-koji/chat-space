@@ -24,7 +24,6 @@ $(function() {
     $('.chat-contents__body__comments').append(html)
   }
 
-
   function countup() {
     if ($('.chat').last(0).data('commentId') == null ){
       var lastId = 0
