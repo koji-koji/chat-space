@@ -21,14 +21,14 @@ describe Comment do
     it "is invalid without a comment and a image" do
       comment = build(:comment,comment: nil ,image: nil)
       comment.valid?
-      expect(comment.errors[:comment,:image]).to include("can't be blank")
+      expect(comment.errors[:image]).to include("can't be blank")
     end
 
 
-    it "is invalid without a group_id" do
-      comment = build(:comment,group_id: nil)
+    it "is invalid without a chatgroup_id" do
+      comment = build(:comment,chatgroup_id: nil)
       comment.valid?
-      expect(comment.errors[:group_id]).to include("can't be blank")
+      expect(comment.errors[:chatgroup_id]).to include("can't be blank")
     end
 
     it "is invalid without a user_id" do
