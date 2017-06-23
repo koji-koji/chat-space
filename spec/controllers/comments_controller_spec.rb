@@ -69,6 +69,11 @@ describe CommentsController do
         expect{post :create, params: {chatgroup_id: chatgroup[:id],comment: {comment: "", image: nil}, chatgroup_id: chatgroup.id}}.not_to change(Comment, :count)
       end
 
+      it 'show flash message ' do
+        post :create, params: {chatgroup_id: chatgroup[:id],comment: {comment: "", image: nil}, chatgroup_id: chatgroup.id}
+        expect(flash.now[:alert]).to include("メッセージかイメージを入力して下さい")
+      end
+
       it 'does not saves the posted and redirect_to chatgroup_comments_path' do
 
         post :create, params: {chatgroup_id: chatgroup[:id],comment: @test_comment, user_id: comment[:id]}
