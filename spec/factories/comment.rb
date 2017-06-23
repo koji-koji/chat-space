@@ -5,8 +5,8 @@ FactoryGirl.define do
     chatgroup_id       { 1 }
     user_id            { 1 }
     image              { File.open("#{Rails.root}/test/fixtures/files/test.jpg") }
-    created_at         Faker::Time.between(DateTime.now - 10, DateTime.now - 5)
-    updated_at         Faker::Time.between(DateTime.now - 4, DateTime.now)
+    created_at         Faker::Time.between(10.days.ago, 6.days.ago, :day)
+    updated_at         Faker::Time.between(5.days.ago , 2.days.ago, :day)
     association :chatgroup
     association :user
   end
