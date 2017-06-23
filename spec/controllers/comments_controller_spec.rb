@@ -39,6 +39,9 @@ describe CommentsController do
     let(:user) { create(:user)}
     let(:chatgroup) { create(:chatgroup)}
     let(:comment) { create(:comment)}
+    before do
+      @test_comment = comment.slice(:comment,:image)
+    end
 
     context 'user log_in and save success' do
       before do
@@ -46,13 +49,13 @@ describe CommentsController do
       end
 
       it 'saves the posted text to @comment ' do
-        test_comment = comment.slice(:comment)
-        expect{post :create, params: {chatgroup_id: chatgroup[:id],comment: test_comment, user_id: comment[:id],image: comment[:image]}}.to change(Comment, :count).by(1)
+        test_comment = comment.slice(:comment,:image)
+        expect{post :create, params: {chatgroup_id: chatgroup[:id],comment: @test_comment, user_id: comment[:id]}}.to change(Comment, :count).by(1)
       end
-      
+
       it 'redirect_to chatgroup_comments_path' do
-        test_comment = comment.slice(:comment)
-        post :create, params: {chatgroup_id: chatgroup[:id],comment: test_comment, user_id: comment[:id],image: comment[:image]}
+        test_comment = comment.slice(:comment,:image)
+        post :create, params: {chatgroup_id: chatgroup[:id],comment: @test_comment, user_id: comment[:id]}
         expect(response).to redirect_to chatgroup_comments_path
       end
     end
@@ -67,8 +70,8 @@ describe CommentsController do
       end
 
       it 'does not saves the posted and redirect_to chatgroup_comments_path' do
-        test_comment = comment.slice(:comment)
-        post :create, params: {chatgroup_id: chatgroup[:id],comment: test_comment, user_id: comment[:id],image: comment[:image]}
+
+        post :create, params: {chatgroup_id: chatgroup[:id],comment: @test_comment, user_id: comment[:id]}
         expect(response).to redirect_to chatgroup_comments_path
       end
     end
