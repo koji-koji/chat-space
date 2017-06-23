@@ -107,10 +107,13 @@ ja:
       second: 秒
       year: 年
   errors:
-    format: "%{message}"
+    format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: グループ名を入力してください
+      chatgroup_id: が存在しません。
+      user_id: が存在しません。
+      messages: が存在しません。
+      blank: を入力してください
       present: は入力しないでください
       confirmation: と%{attribute}の入力が一致しません
       empty: グループ名を入力してください
