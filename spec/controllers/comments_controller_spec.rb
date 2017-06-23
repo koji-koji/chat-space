@@ -49,8 +49,7 @@ describe CommentsController do
         test_comment = comment.slice(:comment)
         expect{post :create, params: {chatgroup_id: chatgroup[:id],comment: test_comment, user_id: comment[:id],image: comment[:image]}}.to change(Comment, :count).by(1)
       end
-
-
+      
       it 'redirect_to chatgroup_comments_path' do
         test_comment = comment.slice(:comment)
         post :create, params: {chatgroup_id: chatgroup[:id],comment: test_comment, user_id: comment[:id],image: comment[:image]}
