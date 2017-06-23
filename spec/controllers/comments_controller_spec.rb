@@ -6,31 +6,31 @@ describe CommentsController do
     let(:chatgroup) { create(:chatgroup)}
     let(:comment) { create(:comment)}
     let(:comments) {create_list(:comment, 3)}
+    before do
+      get :index, params: {chatgroup_id: chatgroup[:id]}
+    end
 
     context 'user log_in' do
       before do
         login_user user
+        get :index, params: {chatgroup_id: chatgroup[:id]}
       end
 
       it "assigns the requested comment to @comment" do
-        get :index, params: {chatgroup_id: chatgroup[:id]}
         expect(assigns(:comment)).to be_an_instance_of Comment
       end
 
       it "assigns the requested comment to @comments" do
-        get :index, params: {chatgroup_id: chatgroup[:id]}
         expect(assigns(:comments)).to match(comments.sort{ |a, b| a.created_at <=> b.created_at })
       end
 
       it "renders the :index template" do
-        get :index, params: {chatgroup_id: chatgroup[:id]}
         expect(response).to render_template :index
       end
     end
 
     context 'user not log_in' do
       it "redirect to user_session_path" do
-        get :index, params: {chatgroup_id: chatgroup[:id]}
         expect(response).to redirect_to user_session_path
       end
     end
