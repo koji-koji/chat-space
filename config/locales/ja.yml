@@ -2,7 +2,7 @@
 ja:
   activerecord:
     errors:
-      image:
+      messages:
         record_invalid: "バリデーションに失敗しました: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
@@ -107,13 +107,13 @@ ja:
       second: 秒
       year: 年
   errors:
-    format: "%{message}"
+    format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      chatgroup_id: 存在しません。
-      user_id: 存在しません。
-      messages: 存在しません。
-      blank: 入力してください
+      chatgroup_id: が存在しません。
+      user_id: が存在しません。
+      messages: が存在しません。
+      blank: を入力してください
       present: は入力しないでください
       confirmation: と%{attribute}の入力が一致しません
       empty: グループ名を入力してください
