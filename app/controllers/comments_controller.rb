@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
         format.json
       end
     else
-      flash.now[:alert] = "メッセージ送信失敗！"
+      flash.now[:alert] = "メッセージかイメージを入力して下さい"
       render :index
     end
   end
