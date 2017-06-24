@@ -16,7 +16,6 @@ describe CommentsController do
         get :index, params: {chatgroup_id: chatgroup.id}
       end
 
-
       it "assigns the requested comment to @comment" do
         expect(assigns(:comment)).to be_an_instance_of Comment
       end
@@ -36,6 +35,7 @@ describe CommentsController do
       end
     end
   end
+
   describe 'POST #create' do
     let(:user) { create(:user)}
     let(:chatgroup) { create(:chatgroup)}
@@ -50,33 +50,37 @@ describe CommentsController do
       end
 
       it 'saves the posted text to @comment ' do
-        expect{post :create, params: {chatgroup_id: chatgroup.id,comment: @test_comment, user_id: comment.user_id}}.to change(Comment, :count).by(1)
+        expect{
+          post :create, params: {chatgroup_id: chatgroup.id,comment: @test_comment, user_id: comment.user_id}
+        }.to change(Comment, :count).by(1)
       end
 
       it 'redirect_to chatgroup_comments_path' do
-        test_comment = comment.slice(:comment,:image)
         post :create, params: {chatgroup_id: chatgroup.id,comment: @test_comment, user_id: comment.user_id}
         expect(response).to redirect_to chatgroup_comments_path
       end
     end
 
     context 'user log_in but save failed' do
+      let(:fail_params) {{ chatgroup_id: chatgroup.id, comment: {comment: "", image: nil}, user_id: comment.user_id}}
       before do
         login_user user
       end
 
       it 'does not saves the posted text to @comment ' do
-        expect{post :create, params: {chatgroup_id: chatgroup.id,comment: {comment: "", image: nil}, user_id: comment.user_id}}.not_to change(Comment, :count)
+        expect{
+          post :create, params: fail_params
+        }.not_to change(Comment, :count)
       end
 
       it 'show flash message ' do
-        post :create, params: {chatgroup_id: chatgroup.id,comment: {comment: "", image: nil}, user_id: comment.user_id}
+        post :create, params: fail_params
         expect(flash.now[:alert]).to include("メッセージかイメージを入力して下さい")
       end
 
-      it 'does not saves the posted and redirect_to chatgroup_comments_path' do
-        post :create, params: {chatgroup_id: chatgroup.id,comment: @test_comment, user_id: comment.user_id}
-        expect(response).to redirect_to chatgroup_comments_path
+      it 'does not saves the posted and render' do
+        post :create, params: fail_params
+        expect(response).to render_template :index
       end
     end
 
